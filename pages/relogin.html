@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../js/global.js"></script>
+	<title>Main Pages</title>
+</head>
+<body>
+	<div id="navbar"></div>
+	<script src="js/navbar.js"></script>
+	  
+    <h1>Enter the new details:</h1>
+
+	<form>
+		<label for="apikey">API Key:</label>
+		<input type="text" id="apikey" name="apikey"><br><br>
+
+		<label for="user_id">User ID:</label>
+		<input type="text" id="user_id" name="user_id"><br><br>
+
+		<label for="guild_id">Guild ID:</label>
+		<input type="text" id="guild_id" name="guild_id"><br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+    <script src="../js/login.js"></script>
+	<script>
+		let apikey = localStorage.getItem('apikey');
+		let user_id = localStorage.getItem('user_id');
+		let guild_id = localStorage.getItem('guild_id');
+		
+        document.getElementById("apikey").value = apikey;
+        document.getElementById("user_id").value = user_id;
+        document.getElementById("guild_id").value = guild_id;	 
+	</script>
+</body>
+</html>
