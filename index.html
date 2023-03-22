@@ -59,6 +59,28 @@ body {
     text-align: left;
   }
 }
+
+/* Styling logout button */
+.logout-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #FFC107; /* change to your desired color */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #FF9800; /* change to your desired hover color */
+}
 </style>
 </head>
 <body>
@@ -72,7 +94,10 @@ body {
     <i class="fa fa-bars"></i>
   </a>
 </div>
-<a href="#" onclick="logout();">Logout</a>
+
+<div class="logout-container">
+  <a href="#" onclick="logout();" class="logout-button">Logout</a>
+</div>
 
 <div style="padding-left:16px">
   <h2>Web Tatsu</h2>
