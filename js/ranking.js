@@ -87,6 +87,6 @@ paginationButtons.forEach((button, index) => {
   console.log(address)
 
   index == 0 && button.classList.add("active-page")
-  button.setAttribute('href', `/pages/ranking.html?page=${address}`)
+  button.setAttribute('href', `/webtatsu/pages/ranking.html?page=${address}`)
   button.innerHTML = address
 });
