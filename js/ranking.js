@@ -6,7 +6,8 @@ const page = urlParams.get('page')
 // Page cannot be null it will redirect to page 0 which is original page
 console.log(page)
 if(page == null || page== "undefined"){
-  window.location.href = '/pages/ranking.html?page=0'
+  page = 0
+  // window.location.href = '/pages/ranking.html?page=0'
 }
 // Get localStorage values
 let apikey = localStorage.getItem('apikey');
