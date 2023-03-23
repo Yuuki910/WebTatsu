@@ -6,19 +6,19 @@ function redirectPage(page, customArgs, returnBase){ //page you need to be redir
   let hostname = window.location.hostname
   // Check if current page is localhost or github project
   switch(hostname){
-    case "localhost": baseUrl = ''; hostname = 'localhost:5500';break;
-    case "127.0.0.1": baseUrl = ''; hostname = '127.0.0.1:5500'; break;
+    case "localhost": baseUrl = '/'; hostname = 'localhost:5500';break;
+    case "127.0.0.1": baseUrl = '/'; hostname = '127.0.0.1:5500'; break;
     case "yuuki910.github.io": baseUrl = '/webtatsu'; break;
-    default: baseUrl = '/webtatsu/';
+    default: baseUrl = '/webtatsu';
   }
 
   // All paths defined here
   const PATH = {
     // All pages
-    home: `${baseUrl}/`,
-    profile: `${baseUrl}/pages/profile.html`,
-    ranking: `${baseUrl}/pages/ranking.html`,
-    compare: `${baseUrl}/pages/compare.html`,
+    home: `${baseUrl}`,
+    profile: `${baseUrl}pages/profile.html`,
+    ranking: `${baseUrl}pages/ranking.html`,
+    compare: `${baseUrl}pages/compare.html`,
   };
 
   if(returnBase) return baseUrl
