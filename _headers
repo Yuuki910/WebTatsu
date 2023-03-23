@@ -1,2 +1,0 @@
-/*
-Content-Security-Policy: default-src 'self'; connect-src 'self' api.tatsu.gg;

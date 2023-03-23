@@ -2,7 +2,7 @@
 if (!localStorage.getItem("apikey") || !localStorage.getItem("user_id") || !localStorage.getItem("guild_id")) {
     // Redirect to form to enter values
     alert("Please enter the details before proceeding.");
-    window.location.href = `.pages/login.html`;
+    window.location.href = `pages/login.html`;
 }
 
 // Main Navbar Button on mobile layout
@@ -32,10 +32,10 @@ if (result === null) {
     switch (result) {
     case "YES":
         clearLocalStorage();
-        window.location.href = `.pages/login.html`;
+        window.location.href = `pages/login.html`;
         break;
     case "RELOGIN":
-        window.location.href = `.pages/relogin.html`;
+        window.location.href = `pages/relogin.html`;
         break;
     default:
        alert("Invalid input!");
