@@ -2,12 +2,14 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 //Get value from ?page
 const page = urlParams.get('page')
+const URL = window.location.hostname
+console.log(URL)
 
 // Page cannot be null it will redirect to page 0 which is original page
 console.log(page)
 if(page == null || page== "undefined"){
 //   page = 0
-  window.location.href = '/webtatsu/pages/ranking.html?page=0'
+  window.location.href = '/pages/ranking.html?page=1'
 }
 // Get localStorage values
 let apikey = localStorage.getItem('apikey');
@@ -27,7 +29,7 @@ async function getUserRankInGuild(member_id) {
 
 // Get leaderboard ranking
 async function getGuildLeaderboard() {
-  return await api.getGuildLeaderboard(guild_id, page, "all")
+  return await api.getGuildLeaderboard(guild_id, page-1, "all")
 }
 
 const getObjBoard = async() => {
@@ -42,9 +44,7 @@ const fillTable = async() => {
   const data = await getObjBoard()
 
   const getUsername = async(i, rankCell, scoreCell, idCell, nameCell) => {
-    await api.getUserProfile(data[i].user_id).then((value) => {
-      console.log(`Called ${i}`, value.username)
-    
+    await api.getUserProfile(data[i].user_id).then((value) => {    
       rankCell.textContent = data[i].rank;
       scoreCell.textContent = data[i].score;
       idCell.textContent = data[i].user_id;
@@ -68,17 +68,15 @@ fillTable();
 // Pagination Buttons Handler
 
 // Previous and Next Page Button Handler
-page == 0 && (prevPage.classList.add("unavailable"))
+page == 1 && (prevPage.classList.add("unavailable"))
 
 prevPage.addEventListener('click', ()=>{
-  console.log(page) 
-  if(page > 0){
-    window.location.href = '/webtatsu/pages/ranking.html?page=' + (Number(page) - 1)
+  if(page > 1){
+    window.location.href = 'ranking.html?page=' + (Number(page) - 1)
   }
 })
 nextPage.addEventListener('click', ()=>{
-console.log(page)  
-  window.location.href = '/webtatsu/pages/ranking.html?page=' + (Number(page) + 1)
+  window.location.href = 'ranking.html?page=' + (Number(page) + 1)
 })
 
 
@@ -88,10 +86,8 @@ console.log(page)
 const paginationButtons = document.querySelectorAll(".pagination-button")
 // Loop to replace button with new number after clicking on next page
 paginationButtons.forEach((button, index) => {
-  let address = Number(Number(page) + Number(index)) + 1
-  console.log(address)
-
+  let address = Number(Number(page) + Number(index))
   index == 0 && button.classList.add("active-page")
-  button.setAttribute('href', `/webtatsu/pages/ranking.html?page=${address}`)
+  button.setAttribute('href', `ranking.html?page=${address}`)
   button.innerHTML = address
 });

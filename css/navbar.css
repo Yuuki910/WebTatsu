@@ -78,7 +78,6 @@ table{
 
 .active-page{
   background-color: coral !important;
-  pointer-events: none;
 }
 
 .unavailable{
