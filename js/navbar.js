@@ -16,19 +16,19 @@ if (!localStorage.getItem("apikey") || !localStorage.getItem("user_id") || !loca
     window.location.href = `${base_path}login.html`;
 }
 
-// This function is used on external navbar to redirect to the other pages
-function redirectPage(pagename){
-    var local_path = "";
-    var local_page = "";
-    if(pagename=="home"){
-        local_path = home_path;
-        local_page=="";
-    } else {
-        local_path = base_path;
-        local_page=`${pagename}.html`;
-    }
-    window.location.href = `${local_path}${local_page}`;
-}
+// // This function is used on external navbar to redirect to the other pages
+// function redirectPage(pagename){
+//     var local_path = "";
+//     var local_page = "";
+//     if(pagename=="home"){
+//         local_path = home_path;
+//         local_page=="";
+//     } else {
+//         local_path = base_path;
+//         local_page=`${pagename}.html`;
+//     }
+//     window.location.href = `${local_path}${local_page}`;
+// }
 
 // Main Navbar Button on mobile layout
 function navOpen() {
@@ -121,12 +121,13 @@ let theme = localStorage.getItem("theme")
     }
   }
 
+let baseUrl = redirectPage(null, null, true) //page = null ||| args = null ||| 3rd argument is just to get the path
 //loads theme onLoad
 if(theme == "dark"){
     let element = document.createElement("link");
     element.setAttribute("rel", "stylesheet");
     element.setAttribute("type", "text/css");
-    element.setAttribute("href", "../css/dark.css");
+    element.setAttribute("href", `..${baseUrl}/css/dark.css`);
     element.setAttribute("id", "themes");
     document.getElementsByTagName("head")[0].appendChild(element);
 }

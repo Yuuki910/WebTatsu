@@ -3,13 +3,20 @@ const urlParams = new URLSearchParams(queryString);
 //Get value from ?page
 const page = urlParams.get('page')
 const URL = window.location.hostname
-console.log(URL)
+const path = "/"
+
+if(URL == "127.0.0.1" || URL == "localhost"){
+  console.log("You're using localhost!")
+}
+else{
+  path = "/webtatsu/"
+  console.log("You're using GitHub!")
+}
 
 // Page cannot be null it will redirect to page 0 which is original page
 console.log(page)
-if(page == null || page== "undefined"){
-//   page = 0
-  window.location.href = '/pages/ranking.html?page=1'
+if(page == null || page == "undefined"){
+  window.location.href = redirectPage("ranking", "?page=1")
 }
 // Get localStorage values
 let apikey = localStorage.getItem('apikey');
@@ -72,11 +79,11 @@ page == 1 && (prevPage.classList.add("unavailable"))
 
 prevPage.addEventListener('click', ()=>{
   if(page > 1){
-    window.location.href = 'ranking.html?page=' + (Number(page) - 1)
+    window.location.href = redirectPage("ranking", "?page=" + (Number(page) - 1))
   }
 })
 nextPage.addEventListener('click', ()=>{
-  window.location.href = 'ranking.html?page=' + (Number(page) + 1)
+    window.location.href = redirectPage("ranking", "?page=" + (Number(page) + 1))
 })
 
 
@@ -88,6 +95,6 @@ const paginationButtons = document.querySelectorAll(".pagination-button")
 paginationButtons.forEach((button, index) => {
   let address = Number(Number(page) + Number(index))
   index == 0 && button.classList.add("active-page")
-  button.setAttribute('href', `ranking.html?page=${address}`)
+  button.setAttribute('href', redirectPage("ranking", "?page=" + address))
   button.innerHTML = address
 });

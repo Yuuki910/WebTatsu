@@ -6,15 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="js/TatsuAPI.js"></script>
 	<script src="js/navbar_temp.js"></script>
+	<script src="paths.js"></script>
 	<link rel="stylesheet" href="css/navbar.css"> 
 	<title>Main Pages</title>
 </head>
 <body>
 	<div class="navbar" id="myNavbar">
-        <a href="#" class="btn-home active">Home</a>
-        <a href="pages/profile.html" class="btn-profile">Profile</a>
-        <a href="./pages/ranking.html" class="btn-ranking">Ranking</a>
-        <a href="pages/compare.html" class="btn-compare">Compare</a>
+        <a href="#" onclick="redirectPage('home')" class="btn-home active">Home</a>
+        <a href="#" onclick="redirectPage('profile')" class="btn-profile">Profile</a>
+        <a href="#" onclick="redirectPage('ranking')" class="btn-ranking">Ranking</a>
+        <a href="#" onclick="redirectPage('compare')" class="btn-compare">Compare</a>
         <a href="#" class="btn-logout" onclick="logOut();">Logout</a>
         <a href="#" class="btn-navbar" onclick="navOpen();">&#9776;</a>
     </div>
