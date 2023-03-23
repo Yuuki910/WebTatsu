@@ -9,7 +9,7 @@ function redirectPage(page, customArgs, returnBase){ //page you need to be redir
     case "localhost": baseUrl = '/'; hostname = 'localhost:5500';break;
     case "127.0.0.1": baseUrl = '/'; hostname = '127.0.0.1:5500'; break;
     case "yuuki910.github.io": baseUrl = '/webtatsu'; break;
-    default: baseUrl = '/webtatsu';
+    default: baseUrl = '/webtatsu/';
   }
 
   // All paths defined here
