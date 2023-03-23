@@ -1,3 +1,5 @@
+//This file need to be properly modified later when we implement PWA
+
 // Check if local storage variables are available otherwise redirect to login pages
 if (!localStorage.getItem("apikey") || !localStorage.getItem("user_id") || !localStorage.getItem("guild_id")) {
     // Redirect to form to enter values

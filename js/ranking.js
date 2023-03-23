@@ -65,7 +65,9 @@ const fillTable = async() => {
 // Fill the table with values gotten from api
 fillTable();
 
+// Pagination Buttons Handler
 
+// Previous and Next Page Button Handler
 page == 0 && (prevPage.classList.add("unavailable"))
 
 prevPage.addEventListener('click', ()=>{
@@ -80,8 +82,11 @@ console.log(page)
 })
 
 
-// pagination
+// Numbering Page Buttons
+
+// Search for all pagination-button class in an array
 const paginationButtons = document.querySelectorAll(".pagination-button")
+// Loop to replace button with new number after clicking on next page
 paginationButtons.forEach((button, index) => {
   let address = Number(Number(page) + Number(index)) + 1
   console.log(address)
