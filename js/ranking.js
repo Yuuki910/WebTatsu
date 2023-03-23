@@ -9,7 +9,7 @@ if(URL == "127.0.0.1" || URL == "localhost"){
   console.log("You're using localhost!")
 }
 else{
-  path = "/webtatsu/"
+  path = "/webtatsu"
   console.log("You're using GitHub!")
 }
 
