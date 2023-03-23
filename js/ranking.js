@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 //Get value from ?page
 const page = urlParams.get('page')
 const URL = window.location.hostname
-const path = "/"
+let path = "/"
 
 if(URL == "127.0.0.1" || URL == "localhost"){
   console.log("You're using localhost!")
