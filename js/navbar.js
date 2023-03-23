@@ -126,7 +126,7 @@ if(theme == "dark"){
     let element = document.createElement("link");
     element.setAttribute("rel", "stylesheet");
     element.setAttribute("type", "text/css");
-    element.setAttribute("href", "../../css/dark.css");
+    element.setAttribute("href", "../css/dark.css");
     element.setAttribute("id", "themes");
     document.getElementsByTagName("head")[0].appendChild(element);
 }
