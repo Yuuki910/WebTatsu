@@ -8,7 +8,7 @@ function redirectPage(page, customArgs, returnBase){ //page you need to be redir
   switch(hostname){
     case "localhost": baseUrl = ''; hostname = 'localhost:5500';break;
     case "127.0.0.1": baseUrl = ''; hostname = '127.0.0.1:5500'; break
-    default: baseUrl = '/webtatsu/'; console.log(baseUrl);
+    default: baseUrl = '/webtatsu/';
   }
 
   // All paths defined here
