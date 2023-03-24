@@ -5,98 +5,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="../js/TatsuAPI.js"></script>
 	<script src="../paths.js"></script>
+	<script src="../js/navbar.js"></script>
 	<title>Main Pages</title>
 </head>
 <body>
 	<div id="navbar"></div>
-	<script src="../js/navbar.js"></script>
-	<h1>This is the profile page <span id="user_name"></span></h1>
-	<table border="1" align="center">
-		<thead>
-		  <tr>
-			<th>Label</th>
-			<th>Value</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
-			<td>Discord Avatar Hash</td>
-			<td id="avatar_hash">{avatar_hash}</td>
-		  </tr>
-		  <tr>
-			<td>Discord Avatar URL</td>
-			<td><img src="" id="avatar_url" alt="Image of User"></td>
-		  </tr>
-		  <tr>
-			<td>Credits</td>
-			<td id="credits">{credits}</td>
-		  </tr>
-		  <tr>
-			<td>Discriminator</td>
-			<td id="discriminator">{discriminator}</td>
-		  </tr>
-		  <tr>
-			<td>Discord ID</td>
-			<td id="discord_id">{id}</td>
-		  </tr>
-		  <tr>
-			<td>Info Box</td>
-			<td id="info_box">{info_box}</td>
-		  </tr>
-		  <tr>
-			<td>Reputation Points</td>
-			<td id="reputation">{reputation}</td>
-		  </tr>
-		  <tr>
-			<td>Subscription Type</td>
-			<td id="subs_type">{subscription_type}</td>
-		  </tr>
-		  <tr>
-			<td>Subscription Renewal Time</td>
-			<td id="subs_renewal">{subscription_renewal}</td>
-		  </tr>
-		  <tr>
-			<td>Title</td>
-			<td id="title">{title}</td>
-		  </tr>
-		  <tr>
-			<td>Tokens</td>
-			<td id="tokens">{tokens}</td>
-		  </tr>
-		  <tr>
-			<td>Discord Username</td>
-			<td id="username">{username}</td>
-		  </tr>
-		  <tr>
-			<td>Experience Points (XP)</td>
-			<td id="xp">{xp}</td>
-		  </tr>
-		</tbody>
-	  </table>
-	  
-	<script>
-		let apikey = localStorage.getItem('apikey');
-		let user_id = localStorage.getItem('user_id');
-		let guild_id = localStorage.getItem('guild_id');
+	<div class="content">
+		<h2><span id="username">{username}</span>'s Profile Page <span id="user_name"></span></h2>
+		<div class="horizontal">
+			<img src="" id="avatar_url" alt="Image of User" width="160" height="160">
+			<div class="vertical">
+				
+				<span class="info">- Primary Info</span>
+				<span>Discord ID: <span id="discord_id">{discord_id}</span></span>
+				<span>XP Points: <span id="xp">{xp}</span></span>
+				<span>Credits: <span id="credits">{credits}</span></span>
+				<span>Discriminator: <span id="discriminator">{discriminator}</span></span>
+				<span>Title: <span id="title">{title}</span></span>
+			</div>
+			<div class="vertical">
+				<span class="info">- Secondary Info</span>
+				<span>Avatar Hash: <span id="avatar_hash">{avatar_hash}</span></span>
+				<span>Sub Type: <span id="subs_type">{subs_type}</span></span>
+				<span>Subscription Renewal: <span id="subs_renewal">{subscription_renewal}</span></span>
+				<span>Reputation: <span id="reputation">{reputation}</span></span>
+				<span>Tokens: <span id="tokens">{tokens}</span></span>
+				<span>Info Box: <span id="info_box">{info_box}</span></span>
+			</div>
+	</div>
 
-		api = new TatsuAPI(apikey);
-		api.getUserProfile(user_id).then((value) => 
-			{
-				document.getElementById("avatar_hash").textContent = value.avatar_hash;
-				document.getElementById("avatar_url").src = value.avatar_url;
-				document.getElementById("credits").textContent = value.credits;
-				document.getElementById("discriminator").textContent = value.discriminator;
-				document.getElementById("discord_id").textContent = value.id;
-				document.getElementById("info_box").textContent = value.info_box;
-				document.getElementById("reputation").textContent = value.reputation;
-				document.getElementById("subs_type").textContent = value.subscription_type;
-				document.getElementById("subs_renewal").textContent = value.subscription_renewal;
-				document.getElementById("title").textContent = value.title;
-				document.getElementById("tokens").textContent = value.tokens;
-				document.getElementById("username").textContent = value.username;
-				document.getElementById("xp").textContent = value.xp;
-			}
-		);
-	</script>
+	<script src="../js/profile.js"></script>
 </body>
 </html>
