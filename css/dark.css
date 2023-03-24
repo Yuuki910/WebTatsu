@@ -1,4 +1,10 @@
 body{
-  background: #212121;
-  color: #fff;
+  background: #212121 !important;
+  color: #fff !important;
 }
+
+.table{
+  background: #303030 !important;
+  border-collapse: collapse;
+}
+

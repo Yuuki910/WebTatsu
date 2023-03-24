@@ -8,10 +8,11 @@
 	<title>Main Pages</title>
 </head>
 <body>
-	<div class="container">
-		<div id="navbar"></div>
+	<div id="navbar"></div>
+	<div class="content">
 		<script src="../js/navbar.js"></script>
 		<h1>RANKING PAGE 10 User Leaderboard</span></h1>
+		<div class="pagination">
 		<a href="#" id="pg-prev" class="page-buttons" >Previous Page</a>
 		<a href="" class="pagination-button">1</a>
 		<a href="" class="pagination-button">1</a>
@@ -23,8 +24,11 @@
 		<a href="" class="pagination-button">1</a>
 		<a href="" class="pagination-button">1</a>
 		<a href="" class="pagination-button">1</a>
+		<a href="" class="pagination-button">1</a>
 		<a href="#" id="pg-next" class="page-buttons" >Next Page</a>
-		<table id="table-board" border="1">
+		<span id="showNames" class="page-buttons" onclick="toggleNames()">Show Names: ON</span>
+		</div>
+		<table id="table-board" class="table">
 			<tr>
 				<th>Rank</th>
 				<th>Score</th>
@@ -32,8 +36,8 @@
 				<th>Name</th>
 			</tr>
 		</table>
-		
-		<script src="../js/ranking.js"></script>
 	</div>
+
+	<script src="../js/ranking.js"></script>
 </body>
 </html>

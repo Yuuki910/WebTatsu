@@ -9,8 +9,9 @@
 </head>
 <body>
 	<div id="navbar"></div>
-	<script src="../js/navbar.js"></script>
-	<h1>This is the ComPARE page <span id="user_name"></span></h1>
+	<div class="content">
+		<h1>This is the ComPARE page <span id="user_name"></span></h1>
+	</div>
 	<script>
 		let apikey = localStorage.getItem('apikey');
 		let user_id = localStorage.getItem('user_id');
@@ -24,5 +25,6 @@
 			}
 		);
 	</script>
+	<script src="../js/navbar.js"></script>
 </body>
 </html>

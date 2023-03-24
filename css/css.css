@@ -1,0 +1,105 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e5e5e5; 
+}
+
+.pagination{
+  position: relative;
+  padding: 10px;
+}
+
+.pagination-button, .page-buttons{
+  padding: 10px;
+  background: #04aa6d;
+  color: #fff;
+  text-decoration: none;
+}
+
+.pagination-button{
+  display: inline-flex;
+  justify-content: center;
+  min-width: 30px;
+  padding: 10px 0px 10px 0px;
+}
+
+.table{
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  background: #fff;
+  border-collapse: collapse;
+}
+.table tr{
+  gap: 20px;
+  border: 1px solid #00000060;
+  /* background: #222; */
+}
+.table td, th{
+  padding: 10px;
+  border: 1px solid #00000060;
+  /* background: #222; */
+}
+
+.active-page{
+  background-color: coral !important;
+}
+
+.unavailable, .unavailable2{
+  background: darkgray !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+.unavailable2{
+  margin-right: 5px;
+  padding: 10px 12px 10px 12px;
+}
+
+.content{
+  padding: 20px;
+}
+
+.hide{
+  display: none;
+}
+
+.info{
+  font-size: larger;
+}
+
+.horizontal{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.vertical{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.vertical>span{
+  border-left: 1px solid coral;
+  margin: 2px 2px 2px 2px;
+  padding-left: 5px;
+}
+
+#showNames{
+  cursor: pointer;
+}
+
+#avatar_url{
+  border-radius: 100px;
+}
+
+#username{
+  font-size: 20pt;
+  border-left: none;
+}
+#discord_id{
+  font-size: 13pt;
+}
