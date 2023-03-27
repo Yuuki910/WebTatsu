@@ -16,6 +16,7 @@ else{
 // Page cannot be null it will redirect to page 0 which is original page
 if(page == null || page == "undefined" || page < 1){
   window.location.href = redirectPage("ranking", "?page=1")
+  page=1
 }
 // Get localStorage values
 let apikey = localStorage.getItem('apikey');
@@ -24,12 +25,20 @@ let guild_id = localStorage.getItem('guild_id');
 let table = document.getElementById("table-board");
 let prevPage = document.getElementById("pg-prev");
 let nextPage = document.getElementById("pg-next");
-let stateShowNames = localStorage.getItem("showNames")
 let showNames = document.getElementById("showNames")
-stateShowNames && (showNames.innerHTML = "Show Names: " + stateShowNames)
+let reloadButton = document.getElementById("reload")
 let api = new TatsuAPI(apikey);
+let stateShowNames
 let obj_board
 let usernames
+
+//idk why, but stateShowNames = Boolean(localStorage.getItem("showNames")) doesn't work, so we have to use this
+if(localStorage.getItem("showNames") == "true")
+  stateShowNames = true
+else
+  stateShowNames = false
+
+showNames.innerHTML = "Show Names: " + stateShowNames
 
 // Get user ranking
 async function getUserRankInGuild(member_id) {
@@ -49,7 +58,7 @@ async function getObjBoard() {
 // Get a reference to the table element in your HTML
 
 // Loop over the array and generate a row for each object
-if(stateShowNames != "true"){
+if(!stateShowNames){
   let rowToDelete = table.rows[0]
   rowToDelete.deleteCell(3)
 }
@@ -59,7 +68,7 @@ const fillTable = async() => {
     rankCell.textContent = data[i].rank;
     scoreCell.textContent = data[i].score;
     idCell.textContent = data[i].user_id;
-    nameCell && (nameCell.textContent = username) //if stateShowNames == true
+    nameCell && (nameCell.textContent = username) //if passed nameCell
   }
 
   const getUsername = async(i, rankCell, scoreCell, idCell, nameCell) => {
@@ -75,7 +84,7 @@ const fillTable = async() => {
     let idCell = row.insertCell(2); //Add a cell for the id
     let nameCell // Add a cell for the name
 
-    if(stateShowNames == "true"){
+    if(stateShowNames){
       nameCell = row.insertCell(3)
       await getUsername(i, rankCell, scoreCell, idCell, nameCell)
     }
@@ -83,6 +92,8 @@ const fillTable = async() => {
     else{
       fillRows(i, rankCell, scoreCell, idCell)
     }
+    //when table filled, make "show names" button available
+    if(i==9) showNames.classList.remove("unavailable")
   }
 
 }
@@ -126,14 +137,28 @@ paginationButtons.forEach((button, index) => {
 
 const toggleNames = () =>{
   if(stateShowNames == null){
-    stateShowNames = "false"
+    stateShowNames = false
     localStorage.setItem("showNames", stateShowNames)
     showNames.innerHTML = "Show Names: " + stateShowNames 
     return
   }
 
-  stateShowNames == "true" ? stateShowNames = "false" : stateShowNames = "true"
+  // When you toggled, the table reloads and toggle button is not available
+  showNames.classList.add("unavailable")
+  clearTable()
+  fillTable()
+
+  stateShowNames = !stateShowNames
   localStorage.setItem("showNames", stateShowNames)
   showNames.innerHTML = "Show Names: " + stateShowNames
 
+}
+
+const clearTable = () => {// This func clears table and fills thead tag
+  table.innerHTML = ""
+  let row = table.insertRow(0);
+    row.insertCell(0).outerHTML = "<th>Rank</th>"
+    row.insertCell(1).outerHTML = "<th>Score</th>"
+    row.insertCell(2).outerHTML = "<th>User ID</th>"
+  !stateShowNames && (row.insertCell(3).outerHTML = "<th>Name</th>")
 }
